@@ -36,13 +36,12 @@ const Home = () => {
             {modalNewTask && (
                 <div className="fixed top-0 right-0 bottom-0 left-0 bg-[rgb(0,0,0,0.5)]">
                     <div
-                        className="absolute top-0 right-0 bottom-0 bg-white w-3/6 m-2 rounded-xl p-4"
-                        id="container-modal-new-task"
+                        className="absolute top-2 left-2 right-2 bottom-2 bg-white md:w-3/6 w-full h-full rounded-xl p-4"
                     >
                         <div className="flex justify-between items-center">
                             <h1 className="text-xl">Task details</h1>
                             <div
-                                className="bg-[#DD524C] cursor-pointer rounded-md"
+                                className="bg-[#DD524C] cursor-pointer rounded-md"  
                                 onClick={() => setModalNewTask(false)}
                             >
                                 <IoMdClose
