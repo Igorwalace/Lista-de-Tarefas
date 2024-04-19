@@ -2,9 +2,8 @@ import React from 'react'
 import { FaCheck, FaRegCompass } from 'react-icons/fa'
 import { IoMdClose } from 'react-icons/io'
 import { SiStagetimer } from 'react-icons/si'
-import { arrayTarefas } from './arrayLista'
 
-const listaDasTarefas = () => {
+const listaDasTarefas = ({arrayTarefas}:any) => {
     return (
         <>
         <div className="py-4 flex flex-col justify-center items-center gap-3">
@@ -23,7 +22,7 @@ const listaDasTarefas = () => {
                             <div className="bg-white rounded-lg p-1 text-[#A0ECB1]">
                                 <FaRegCompass size={25} />
                             </div>
-                            <h1 className="">{info.title}</h1>
+                            <h1 className="capitalize">{info.title}</h1>
                         </div>
 
                         {info.value == 'Completed' ? (
@@ -31,6 +30,9 @@ const listaDasTarefas = () => {
                                 <FaCheck
                                     size={25}
                                     className="text-[#A0ECB1]"
+                                    onClick={()=> {
+                                        info.value = 'Progress'
+                                    }}
                                 />
                             </div>
                         ) : info.value == 'Progress' ? (
@@ -38,6 +40,9 @@ const listaDasTarefas = () => {
                                 <SiStagetimer
                                     size={25}
                                     className="text-[#F5D565]"
+                                    onClick={()=> {
+                                        info.value = 'Completed'
+                                    }}
                                 />
                             </div>
                         ) : (
@@ -45,6 +50,9 @@ const listaDasTarefas = () => {
                                 <IoMdClose
                                     size={25}
                                     className="text-[#F7D4D3]"
+                                    onClick={()=> {
+                                        info.value = 'To Do'
+                                    }}
                                 />
                             </div>
                         )}
