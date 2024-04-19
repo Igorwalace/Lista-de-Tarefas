@@ -6,7 +6,7 @@ import { RiTimer2Line } from 'react-icons/ri';
 import { GiBlackBook, GiClaymoreExplosive } from 'react-icons/gi';
 import { CgMoreO } from 'react-icons/cg';
 
-const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modalDetails, setTaskDetails, setIsDelete, taskDetails }: any) => {
+const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modalDetails, setTaskDetails, setIsDelete, taskDetails, setIsUptade, isUptade }: any) => {
 
     const handleTaskChange = (id: number, newValue: 'Completed' | 'Progress' | 'To Do') => {
         setArrayTarefas((prevTasks: any) =>
@@ -112,6 +112,8 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                     taskDetails={taskDetails}
                     handleDeleteTask={handleDeleteTask}
                     setArrayTarefas={setArrayTarefas}
+                    setIsUptade={setIsUptade}
+                    isUptade={isUptade}
                 />
             </div>
         </>

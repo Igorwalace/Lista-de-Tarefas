@@ -7,6 +7,7 @@ import ModalNewTask from './componentes/ModalNewTask';
 
 const Home = () => {
     const [modalNewTask, setModalNewTask] = useState(false);
+    const [isUptade, setIsUptade] = useState(false)
     const [isInfo, setIsInfo] = useState(false);
     const [isDelete, setIsDelete] = useState(false);
     const [modalDetails, setModalDetails] = useState(false);
@@ -60,13 +61,13 @@ const Home = () => {
     }, [arrayTarefas]);
 
     useEffect(() => {
-        if (modalNewTask) {
+        if (modalNewTask || modalDetails) {
             document.querySelector('body').style.overflow = 'hidden';
         }
-        if (!modalNewTask) {
+        if (!modalNewTask || !modalDetails) {
             document.querySelector('body').style.overflow = 'auto';
         }
-    }, [modalNewTask]);
+    }, [modalNewTask, modalDetails]);
 
     const handleSendTask = () => {
         if (title == '') {
@@ -91,13 +92,14 @@ const Home = () => {
     };
 
     useEffect(() => {
-        if (isInfo || isDelete) {
+        if (isInfo || isDelete || isUptade) {
             setTimeout(() => {
                 setIsInfo(false);
+                setIsUptade(false)
                 setIsDelete(false);
             }, 2000);
         }
-    }, [isInfo, isDelete]);
+    }, [isUptade, isInfo, isDelete]);
 
     return (
         <>
@@ -118,6 +120,8 @@ const Home = () => {
                         setTaskDetails={setTaskDetails}
                         setIsDelete={setIsDelete}
                         setIsInfo={setIsInfo}
+                        setIsUptade={setIsUptade}
+                        isUptade={isUptade}
                     />
                     <div
                         className="bg-[#6d8ae3] w-full rounded-xl p-2 cursor-pointer mt-2"
@@ -133,11 +137,20 @@ const Home = () => {
                 </div>
                 {isInfo && (
                     <div
-                        className="fixed bottom-4 bg-[#0288d1] rounded-xl md:min-w-[30%] p-2 flex justify-center gap-2 items-center z-[100] text-[#001824]"
+                        className="fixed bottom-4 bg-[#f57c00] rounded-xl md:min-w-[30%] p-2 flex justify-center gap-2 items-center z-[100] text-[#201000]"
                         id="isInfo"
                     >
                         <IoMdInformationCircleOutline size={20} />
                         <h1>Verifique as informações da tarefas.</h1>
+                    </div>
+                )}
+                {isUptade && (
+                    <div
+                        className="fixed bottom-4 bg-[#0288d1] rounded-xl md:min-w-[30%] p-2 flex justify-center gap-2 items-center z-[100] text-[#01293f]"
+                        id="isInfo"
+                    >
+                        <IoMdInformationCircleOutline size={20} />
+                        <h1>Tarefa atualizada.</h1>
                     </div>
                 )}
                 {isDelete && (
