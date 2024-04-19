@@ -1,10 +1,9 @@
-import { FaCheck, FaHeart, FaRegCompass } from 'react-icons/fa'
+import { FaCheck, FaHeart } from 'react-icons/fa'
 import { IoMdClose } from 'react-icons/io'
 import { SiStagetimer } from 'react-icons/si'
 import ModalDetailsPage from './modal-details';
 import { RiTimer2Line } from 'react-icons/ri';
-import { GiBlackBook, GiClaymoreExplosive } from 'react-icons/gi';
-import { CgMoreO } from 'react-icons/cg';
+import { GiBlackBook } from 'react-icons/gi';
 import { AiFillBell } from 'react-icons/ai';
 
 const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modalDetails, setTaskDetails, setIsDelete, taskDetails, setIsUptade, isUptade }: any) => {
@@ -15,7 +14,7 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
         );
     };
 
-    const handleDetails = (id: any, title: any, description: any, value: any, icon:any) => {
+    const handleDetails = (id: any, title: any, description: any, value: any, icon: any) => {
         setModalDetails(true)
         setTaskDetails([
             {
@@ -49,8 +48,9 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                             } p-2 rounded-lg w-full`}
                     >
                         <div className="flex justify-between items-center gap-3">
-                            <div className="flex items-center gap-3 cursor-pointer"
-                                onClick={() => handleDetails(info.id, info.title, info.description, info.value, info.icon)}>
+                            <div className="flex items-center gap-3 cursor-pointer w-full h-full"
+                                onClick={() => handleDetails(info.id, info.title, info.description, info.value, info.icon)}
+                            >
                                 <div className="bg-[#E3E8EF] rounded-lg p-1 text-[#A0ECB1]">
                                     {info.icon == 'Timer' &&
                                         <RiTimer2Line
@@ -59,10 +59,10 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                                         />
                                     }
                                     {info.icon == 'Pensando' &&
-                                        <FaHeart 
-                                        size={35}
-                                        className="text-[#DD524C]"
-                                    />}
+                                        <FaHeart
+                                            size={35}
+                                            className="text-[#DD524C]"
+                                        />}
 
                                     {info.icon == '3p' &&
                                         <AiFillBell
@@ -76,11 +76,13 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                                         />
                                     }
                                 </div>
-                                <h1 className="capitalize">{info.title}</h1>
+                                <div className='w-full  h-full' >
+                                    <h1 className="capitalize w-full cursor-pointer">{info.title}</h1>
+                                </div>
                             </div>
 
                             {info.value == 'Completed' ? (
-                                <div className="bg-[#32D657] p-1 rounded-xl cursor-pointer"
+                                <div className="bg-[#32D657] p-1 rounded-xl cursor-pointer z-100"
                                     onClick={() => handleTaskChange(info.id, 'Progress')}>
                                     <FaCheck
                                         size={25}

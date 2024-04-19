@@ -1,9 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { AiFillBell, AiOutlineDelete } from 'react-icons/ai'
-import { CgMoreO } from 'react-icons/cg'
 import { FaCheck, FaHeart } from 'react-icons/fa'
-import { GiBlackBook, GiClaymoreExplosive } from 'react-icons/gi'
+import { GiBlackBook } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 import { RiTimer2Line } from 'react-icons/ri'
 import { SiStagetimer } from 'react-icons/si'
@@ -36,7 +35,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                     <main className='h-full pb-4 flex justify-end'>
                         <div className="relative bg-white md:w-3/6 w-full h-full rounded-xl p-4 m-2" id='container-modal-new-task'>
                             <div className="flex justify-between items-center">
-                                <h1 className="text-xl">Task details</h1>
+                                <h1 className="text-xl">Detalhes da Tarefa</h1>
                                 <div
                                     className="bg-[#DD524C] cursor-pointer rounded-md"
                                     onClick={() => setModalDetails(false)}
@@ -51,7 +50,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                 <div key={info.id} className='my-4 border-t-2 border-[#0000033]'>
                                     <div>
                                         <div className='my-3' >
-                                            <h1 className='p-1 my-1' >Task Name</h1>
+                                            <h1 className='p-1 my-1' >Nome da Tarefa</h1>
                                             <div className='w-full border-2 border-[#3662E3] rounded-xl p-2 capitalize' >
                                                 <h1>{info.title}</h1>
                                             </div>
@@ -158,7 +157,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                             </div>
                                         </div>
 
-                                        <div className='absolute bottom-0 right-0 p-4 flex gap-3'>
+                                        <div className='absolute bottom-0 right-0 p-4 flex gap-3' id='isInfo'>
                                             <button
                                                 className='bg-[#97A3B6] p-2 px-3 rounded-xl text-[#E3E8EF] flex items-center gap-3'
                                                 onClick={() => handleDeleteTask(info.id)}

@@ -1,8 +1,7 @@
 import React from 'react'
 import { AiFillBell } from 'react-icons/ai'
-import { CgMoreO } from 'react-icons/cg'
 import { FaCheck, FaHeart } from 'react-icons/fa'
-import { GiBlackBook, GiClaymoreExplosive } from 'react-icons/gi'
+import { GiBlackBook } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 import { RiTimer2Line } from 'react-icons/ri'
 
@@ -80,7 +79,7 @@ const ModalNewTask = ({ modalNewTask, setModalNewTask, setDescription, descripti
                                         />
                                     </div>
                                 </div>
-                                <div className="absolute bottom-0 right-0 p-4">
+                                <div className="absolute bottom-0 right-0 p-4" id='isInfo'>
                                     <button className="bg-[#3662E3] p-1 px-3 rounded-md text-white flex items-center gap-3" onClick={handleSendTask}>
                                         Salvar <FaCheck size={15} />{' '}
                                     </button>
