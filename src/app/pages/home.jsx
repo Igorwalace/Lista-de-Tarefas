@@ -106,11 +106,11 @@ const Home = () => {
                         setIsDelete={setIsDelete}
                     />
                     <div
-                        className="bg-[#3662E3] w-full rounded-xl p-2 cursor-pointer mt-2"
+                        className="bg-[#6d8ae3] w-full rounded-xl p-2 cursor-pointer mt-2"
                         onClick={handleModalNewtask}
                     >
                         <div className="flex gap-3 items-center ">
-                            <div className="bg-[#E3E8EF] rounded-xl p-1 text-[#3662E3]">
+                            <div className="bg-[#3662E3] rounded-xl p-1 text-[#ffff]">
                                 <IoMdAdd size={25} />
                             </div>
                             <h1>Adicionar nova tarefa</h1>
