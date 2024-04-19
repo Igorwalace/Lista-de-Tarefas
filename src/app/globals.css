@@ -2,15 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes container-modal-new-task{
-    from{
+@keyframes container-modal-new-task {
+    from {
         width: 0;
     }
-    to{ 
+    to {
         width: 50%;
     }
 }
 
-#container-modal-new-task{
+@keyframes container-modal-new-task2 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes isInfo {
+    from {
+        bottom: -100vh;
+    }
+    to {
+        bottom: 16px;
+    }
+}
+
+#container-modal-new-task {
     animation: container-modal-new-task 0.5s;
+}
+#isInfo {
+    animation: isInfo 0.5s;
+}
+@media (max-width: 720px) {
+    #container-modal-new-task {
+        animation: container-modal-new-task2 0.5s;
+    }
 }
