@@ -77,7 +77,7 @@ const Home = () => {
             <main className="w-full flex justify-center">
                 <div className="w-[600px] h-full p-4 m-2 relative">
                     <DivTitle />
-                    <ListaDasTarefas arrayTarefas={arrayTarefas} />
+                    <ListaDasTarefas arrayTarefas={arrayTarefas} setArrayTarefas={setArrayTarefas} />
                     <div
                         className="bg-[#F5E8D5] w-full rounded-xl p-2 cursor-pointer mt-2"
                         onClick={handleModalNewtask}
