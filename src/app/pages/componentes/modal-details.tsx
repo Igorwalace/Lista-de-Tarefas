@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
-import { AiOutlineDelete } from 'react-icons/ai'
+import { AiFillBell, AiOutlineDelete } from 'react-icons/ai'
 import { CgMoreO } from 'react-icons/cg'
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaHeart } from 'react-icons/fa'
 import { GiBlackBook, GiClaymoreExplosive } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 import { RiTimer2Line } from 'react-icons/ri'
@@ -76,7 +76,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                     onClick={() => handleEditTask(info.id, info.value, info.icon = 'Timer')}>
                                                     <RiTimer2Line
                                                         size={35}
-                                                        className="text-[#DD524C]"
+                                                        className="text-[#E9A23B]"
                                                     />
                                                 </div>
 
@@ -84,17 +84,17 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                     className={`${info.icon == 'Pensando' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}
                                                     onClick={() => handleEditTask(info.id, info.value, info.icon = 'Pensando')}
                                                 >
-                                                    <GiClaymoreExplosive
+                                                    <FaHeart 
                                                         size={35}
-                                                        className="text-[#3662E3]"
+                                                        className="text-[#DD524C]"
                                                     />
                                                 </div>
                                                 <div
                                                     className={`${info.icon == '3p' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}
                                                     onClick={() => handleEditTask(info.id, info.value, info.icon = '3p')}>
-                                                    <CgMoreO
+                                                    <AiFillBell 
                                                         size={35}
-                                                        className="text-[#E9A23B]"
+                                                        className="text-[#626242]"
                                                     />
                                                 </div>
                                                 <div
@@ -103,7 +103,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                 >
                                                     <GiBlackBook
                                                         size={35}
-                                                        className="text-[#32D657]"
+                                                        className="text-[#3662E3]"
                                                     />
                                                 </div>
                                             </div>

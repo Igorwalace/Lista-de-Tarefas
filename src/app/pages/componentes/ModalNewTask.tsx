@@ -1,12 +1,13 @@
 import React from 'react'
+import { AiFillBell } from 'react-icons/ai'
 import { CgMoreO } from 'react-icons/cg'
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaHeart } from 'react-icons/fa'
 import { GiBlackBook, GiClaymoreExplosive } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 import { RiTimer2Line } from 'react-icons/ri'
 
 const ModalNewTask = ({ modalNewTask, setModalNewTask, setDescription, description, title, setTitle, handleSendTask, setIsInfo, setIcon, icon }: any) => {
-    const handleIconChange = (value:string) => {
+    const handleIconChange = (value: string) => {
         setIcon(value)
     };
     return (
@@ -29,7 +30,7 @@ const ModalNewTask = ({ modalNewTask, setModalNewTask, setDescription, descripti
                                     />
                                 </div>
                             </div>
-                            <form className="text-[#97A3B6] w-full mt-5 flex flex-col items-start gap-3" onClick={()=>{setIsInfo(false)}}>
+                            <form className="text-[#97A3B6] w-full mt-5 flex flex-col items-start gap-3" onClick={() => { setIsInfo(false) }}>
                                 <div className="w-full ">
                                     <h1 className="p-1">Task name</h1>
                                     <input
@@ -54,28 +55,28 @@ const ModalNewTask = ({ modalNewTask, setModalNewTask, setDescription, descripti
                             <div className="text-[#97A3B6]">
                                 <h1 className="p-1">Icon</h1>
                                 <div className="flex items-center gap-3">
-                                    <div className={`${icon == 'Timer' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={()=>handleIconChange('Timer')}>
+                                    <div className={`${icon == 'Timer' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={() => handleIconChange('Timer')}>
                                         <RiTimer2Line
-                                            size={35}
-                                            className="text-[#DD524C]"
-                                        />
-                                    </div>
-                                    <div className={`${icon == 'Pensando' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={()=>handleIconChange('Pensando')}>
-                                        <GiClaymoreExplosive
-                                            size={35}
-                                            className="text-[#3662E3]"
-                                        />
-                                    </div>
-                                    <div className={`${icon == '3p' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={()=>handleIconChange('3p')}>
-                                        <CgMoreO
                                             size={35}
                                             className="text-[#E9A23B]"
                                         />
                                     </div>
-                                    <div className={`${icon == 'Book' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={()=>handleIconChange('Book')}>
+                                    <div className={`${icon == 'Pensando' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={() => handleIconChange('Pensando')}>
+                                        <FaHeart
+                                            size={35}
+                                            className="text-[#DD524C]"
+                                        />
+                                    </div>
+                                    <div className={`${icon == '3p' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={() => handleIconChange('3p')}>
+                                        <AiFillBell
+                                            size={35}
+                                            className="text-[#626242]"
+                                        />
+                                    </div>
+                                    <div className={`${icon == 'Book' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={() => handleIconChange('Book')}>
                                         <GiBlackBook
                                             size={35}
-                                            className="text-[#32D657]"
+                                            className="text-[#3662E3]"
                                         />
                                     </div>
                                 </div>

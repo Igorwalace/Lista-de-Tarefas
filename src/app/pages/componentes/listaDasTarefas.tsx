@@ -1,10 +1,11 @@
-import { FaCheck, FaRegCompass } from 'react-icons/fa'
+import { FaCheck, FaHeart, FaRegCompass } from 'react-icons/fa'
 import { IoMdClose } from 'react-icons/io'
 import { SiStagetimer } from 'react-icons/si'
 import ModalDetailsPage from './modal-details';
 import { RiTimer2Line } from 'react-icons/ri';
 import { GiBlackBook, GiClaymoreExplosive } from 'react-icons/gi';
 import { CgMoreO } from 'react-icons/cg';
+import { AiFillBell } from 'react-icons/ai';
 
 const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modalDetails, setTaskDetails, setIsDelete, taskDetails, setIsUptade, isUptade }: any) => {
 
@@ -54,24 +55,24 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                                     {info.icon == 'Timer' &&
                                         <RiTimer2Line
                                             size={35}
-                                            className="text-[#DD524C]"
+                                            className="text-[#E9A23B]"
                                         />
                                     }
                                     {info.icon == 'Pensando' &&
-                                        <GiClaymoreExplosive
-                                            size={35}
-                                            className="text-[#3662E3]"
-                                        />}
+                                        <FaHeart 
+                                        size={35}
+                                        className="text-[#DD524C]"
+                                    />}
 
                                     {info.icon == '3p' &&
-                                        <CgMoreO
+                                        <AiFillBell
                                             size={35}
-                                            className="text-[#E9A23B]"
+                                            className="text-[#626242]"
                                         />}
                                     {info.icon == 'Book' &&
                                         <GiBlackBook
                                             size={35}
-                                            className="text-[#32D657]"
+                                            className="text-[#3662E3]"
                                         />
                                     }
                                 </div>
