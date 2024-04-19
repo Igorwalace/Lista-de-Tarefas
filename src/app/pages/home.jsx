@@ -33,24 +33,6 @@ const Home = () => {
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet erat id lorem tristique vehicula. Nunc quis ornare justo, sed volutpat liber',
         },
-        {
-            id: 3,
-            title: 'Correr',
-            value: 'To Do',
-            description: 'description',
-        },
-        {
-            id: 2,
-            title: 'lavar louça',
-            value: 'Progress',
-            description: 'description',
-        },
-        {
-            id: 13,
-            title: 'Task Won’t Do',
-            value: 'To Do',
-            description: 'description',
-        },
     ]);
 
     const [title, setTitle] = useState('');
@@ -59,6 +41,17 @@ const Home = () => {
     const handleModalNewtask = () => {
         setModalNewTask(true);
     };
+
+    useEffect(() => {
+        const ListaDeTarefas = JSON.parse(localStorage.getItem('ListaDeTarefas'))
+        if (ListaDeTarefas) {
+            setArrayTarefas(ListaDeTarefas);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('ListaDeTarefas', JSON.stringify(arrayTarefas))
+    }, [arrayTarefas]);
 
     useEffect(() => {
         if (modalNewTask) {
