@@ -12,32 +12,7 @@ const Home = () => {
     const [isDelete, setIsDelete] = useState(false);
     const [modalDetails, setModalDetails] = useState(false);
     const [taskDetails, setTaskDetails] = useState([]);
-    const [arrayTarefas, setArrayTarefas] = useState([
-        {
-            id: 1,
-            title: 'Arrumar o quarto',
-            value: 'Completed',
-            description:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet erat id lorem tristique vehicula. Nunc quis ornare justo, sed volutpat liber',
-            icon: 'Timer'
-        },
-        {
-            id: 4,
-            title: 'Estudar Inglês',
-            value: 'Completed',
-            description:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet erat id lorem tristique vehicula. Nunc quis ornare justo, sed volutpat liber',
-            icon: 'Pensando'
-        },
-        {
-            id: 21,
-            title: 'Cozinhar',
-            value: 'Progress',
-            description:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet erat id lorem tristique vehicula. Nunc quis ornare justo, sed volutpat liber',
-            icon: '3p'
-        },
-    ]);
+    const [arrayTarefas, setArrayTarefas] = useState([]);
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');

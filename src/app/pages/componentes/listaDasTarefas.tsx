@@ -37,6 +37,9 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
     return (
         <>
             <div className="py-4 flex flex-col justify-center items-center gap-3">
+                {arrayTarefas.length === 0 &&
+                    <h1 className='text-xl' >Nenhuma tarefa encontrada :)</h1>
+                }
                 {arrayTarefas.map((info: any) => (
                     <div
                         key={info.id}
