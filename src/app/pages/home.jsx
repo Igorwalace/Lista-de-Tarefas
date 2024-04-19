@@ -7,8 +7,8 @@ import ModalNewTask from './componentes/ModalNewTask';
 
 const Home = () => {
     const [modalNewTask, setModalNewTask] = useState(false);
-    const [isInfo, setIsInfo] = useState(false)
-    const [isDelete, setIsDelete] = useState(false)
+    const [isInfo, setIsInfo] = useState(false);
+    const [isDelete, setIsDelete] = useState(false);
     const [modalDetails, setModalDetails] = useState(false);
     const [taskDetails, setTaskDetails] = useState([]);
     const [arrayTarefas, setArrayTarefas] = useState([
@@ -18,6 +18,7 @@ const Home = () => {
             value: 'Completed',
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet erat id lorem tristique vehicula. Nunc quis ornare justo, sed volutpat liber',
+            icon: 'Timer'
         },
         {
             id: 4,
@@ -25,6 +26,7 @@ const Home = () => {
             value: 'Completed',
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet erat id lorem tristique vehicula. Nunc quis ornare justo, sed volutpat liber',
+            icon: 'Pensando'
         },
         {
             id: 21,
@@ -32,25 +34,29 @@ const Home = () => {
             value: 'Progress',
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet erat id lorem tristique vehicula. Nunc quis ornare justo, sed volutpat liber',
+            icon: '3p'
         },
     ]);
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [icon, setIcon] = useState('Timer')
 
     const handleModalNewtask = () => {
         setModalNewTask(true);
     };
 
     useEffect(() => {
-        const ListaDeTarefas = JSON.parse(localStorage.getItem('ListaDeTarefas'))
+        const ListaDeTarefas = JSON.parse(
+            localStorage.getItem('ListaDeTarefas')
+        );
         if (ListaDeTarefas) {
             setArrayTarefas(ListaDeTarefas);
         }
     }, []);
 
     useEffect(() => {
-        localStorage.setItem('ListaDeTarefas', JSON.stringify(arrayTarefas))
+        localStorage.setItem('ListaDeTarefas', JSON.stringify(arrayTarefas));
     }, [arrayTarefas]);
 
     useEffect(() => {
@@ -63,10 +69,11 @@ const Home = () => {
     }, [modalNewTask]);
 
     const handleSendTask = () => {
-        if (title == '' || description == '') {
-            setIsInfo(true)
+        if (title == '') {
+            setIsInfo(true);
             return;
         }
+
         const newTask = [
             ...arrayTarefas,
             {
@@ -74,6 +81,7 @@ const Home = () => {
                 description: description,
                 id: Math.floor(Math.random() * 10000),
                 value: 'To Do',
+                icon: icon
             },
         ];
         setArrayTarefas(newTask);
@@ -87,13 +95,18 @@ const Home = () => {
             setTimeout(() => {
                 setIsInfo(false);
                 setIsDelete(false);
-            }, 3000);
+            }, 2000);
         }
     }, [isInfo, isDelete]);
 
     return (
         <>
-            <main className="w-full flex justify-center">
+            <main
+                className="w-full flex justify-center"
+                onClick={() => {
+                    setIsInfo(false);
+                }}
+            >
                 <div className="w-[600px] h-full p-4 m-2 relative">
                     <DivTitle />
                     <ListaDasTarefas
@@ -104,6 +117,7 @@ const Home = () => {
                         taskDetails={taskDetails}
                         setTaskDetails={setTaskDetails}
                         setIsDelete={setIsDelete}
+                        setIsInfo={setIsInfo}
                     />
                     <div
                         className="bg-[#6d8ae3] w-full rounded-xl p-2 cursor-pointer mt-2"
@@ -145,6 +159,9 @@ const Home = () => {
                 title={title}
                 setTitle={setTitle}
                 handleSendTask={handleSendTask}
+                setIsInfo={setIsInfo}
+                setIcon={setIcon}
+                icon={icon}
             />
         </>
     );

@@ -2,8 +2,11 @@ import { FaCheck, FaRegCompass } from 'react-icons/fa'
 import { IoMdClose } from 'react-icons/io'
 import { SiStagetimer } from 'react-icons/si'
 import ModalDetailsPage from './modal-details';
+import { RiTimer2Line } from 'react-icons/ri';
+import { GiBlackBook, GiClaymoreExplosive } from 'react-icons/gi';
+import { CgMoreO } from 'react-icons/cg';
 
-const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modalDetails, setTaskDetails, taskDetails, setIsDelete }: any) => {
+const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modalDetails, setTaskDetails, setIsDelete, taskDetails }: any) => {
 
     const handleTaskChange = (id: number, newValue: 'Completed' | 'Progress' | 'To Do') => {
         setArrayTarefas((prevTasks: any) =>
@@ -11,7 +14,7 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
         );
     };
 
-    const handleDetails = (id: any, title: any, description: any, value: any) => {
+    const handleDetails = (id: any, title: any, description: any, value: any, icon:any) => {
         setModalDetails(true)
         setTaskDetails([
             {
@@ -19,6 +22,7 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                 title: title,
                 description: description,
                 value: value,
+                icon: icon
             }
         ])
     }
@@ -45,9 +49,31 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                     >
                         <div className="flex justify-between items-center gap-3">
                             <div className="flex items-center gap-3 cursor-pointer"
-                                onClick={() => handleDetails(info.id, info.title, info.description, info.value)}>
-                                <div className="bg-white rounded-lg p-1 text-[#A0ECB1]">
-                                    <FaRegCompass size={25} />
+                                onClick={() => handleDetails(info.id, info.title, info.description, info.value, info.icon)}>
+                                <div className="bg-[#E3E8EF] rounded-lg p-1 text-[#A0ECB1]">
+                                    {info.icon == 'Timer' &&
+                                        <RiTimer2Line
+                                            size={35}
+                                            className="text-[#DD524C]"
+                                        />
+                                    }
+                                    {info.icon == 'Pensando' &&
+                                        <GiClaymoreExplosive
+                                            size={35}
+                                            className="text-[#3662E3]"
+                                        />}
+
+                                    {info.icon == '3p' &&
+                                        <CgMoreO
+                                            size={35}
+                                            className="text-[#E9A23B]"
+                                        />}
+                                    {info.icon == 'Book' &&
+                                        <GiBlackBook
+                                            size={35}
+                                            className="text-[#32D657]"
+                                        />
+                                    }
                                 </div>
                                 <h1 className="capitalize">{info.title}</h1>
                             </div>
@@ -85,6 +111,7 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                     setModalDetails={setModalDetails}
                     taskDetails={taskDetails}
                     handleDeleteTask={handleDeleteTask}
+                    setArrayTarefas={setArrayTarefas}
                 />
             </div>
         </>
