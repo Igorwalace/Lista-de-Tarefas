@@ -4,7 +4,7 @@ import { FaCheck } from 'react-icons/fa'
 import { GiBlackBook, GiClaymoreExplosive } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 import { RiTimer2Line } from 'react-icons/ri'
-import {  SiStagetimer } from 'react-icons/si'
+import { SiStagetimer } from 'react-icons/si'
 
 const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDeleteTask, setArrayTarefas }: any) => {
     const handleEditTask = (id: number, newValue: string) => {
@@ -56,33 +56,31 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                         <div className='my-3' >
                                             <h1 className='p-1' >Icon</h1>
                                             <div className="flex items-center gap-3">
-                                                {info.icon == 'Timer' 
-                                                &&
-                                                <div className={`bg-[#00000033] p-1 rounded-md cursor-pointer`}>
-                                                    <RiTimer2Line
-                                                        size={35}
-                                                        className="text-[#DD524C]"
-                                                    />
-                                                </div>
-                                                }
-                                                <div className="bg-[#00000033] p-1 rounded-md cursor-pointer">
-                                                    <GiClaymoreExplosive
-                                                        size={35}
-                                                        className="text-[#3662E3]"
-                                                    />
-                                                </div>
-                                                <div className="bg-[#00000033] p-1 rounded-md cursor-pointer">
-                                                    <CgMoreO
-                                                        size={35}
-                                                        className="text-[#E9A23B]"
-                                                    />
-                                                </div>
-                                                <div className="bg-[#00000033] p-1 rounded-md cursor-pointer">
-                                                    <GiBlackBook
-                                                        size={35}
-                                                        className="text-[#32D657]"
-                                                    />
-                                                </div>
+                                                    <div className={`${info.icon == 'Timer' && 'border-[#3662E3]'} border-2  bg-[#00000033] p-1 rounded-md cursor-pointer`}>
+                                                        <RiTimer2Line
+                                                            size={35}
+                                                            className="text-[#DD524C]"
+                                                        />
+                                                    </div>
+                                                
+                                                    <div className={`${info.icon == 'Pensando' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}>
+                                                        <GiClaymoreExplosive
+                                                            size={35}
+                                                            className="text-[#3662E3]"
+                                                        />
+                                                    </div>
+                                                    <div className={`${info.icon == '3p' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}>
+                                                        <CgMoreO
+                                                            size={35}
+                                                            className="text-[#E9A23B]"
+                                                        />
+                                                    </div>
+                                                    <div className={`${info.icon == 'Book' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}>
+                                                        <GiBlackBook
+                                                            size={35}
+                                                            className="text-[#32D657]"
+                                                        />
+                                                    </div>
                                             </div>
                                         </div>
 
