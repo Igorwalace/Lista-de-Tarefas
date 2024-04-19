@@ -13,15 +13,11 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
     const [newValue, setNewValue] = useState('')
     const [newId, setNewId] = useState(null)
 
-    const handleEditTask = (id: any, newValue: string) => {
+    const handleEditTask = (id: any, newValue: string, icon:string) => {
         setNewId(id)
         setNewValue(newValue)
+        setNewValueIcon(icon)
     }
-    const handleEditTaskIcon = (id: any, newIcon: string) => {
-        setNewId(id)
-        setNewValueIcon(newIcon)
-    }
-
     const handleUptade = () => {
         setArrayTarefas((prevTasks: any) =>
             prevTasks.map((task: any) => (task.id === newId ? { ...task, icon: newValueIcon } : task))
@@ -77,7 +73,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                             <div className="flex items-center gap-3">
                                                 <div
                                                     className={`${info.icon == 'Timer' && 'border-[#3662E3]'} border-2  bg-[#00000033] p-1 rounded-md cursor-pointer`}
-                                                    onClick={() => handleEditTaskIcon(info.id, info.icon = 'Timer')}>
+                                                    onClick={() => handleEditTask(info.id, info.value, info.icon = 'Timer')}>
                                                     <RiTimer2Line
                                                         size={35}
                                                         className="text-[#DD524C]"
@@ -86,7 +82,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
 
                                                 <div
                                                     className={`${info.icon == 'Pensando' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}
-                                                    onClick={() => handleEditTaskIcon(info.id, info.icon = 'Pensando')}
+                                                    onClick={() => handleEditTask(info.id, info.value, info.icon = 'Pensando')}
                                                 >
                                                     <GiClaymoreExplosive
                                                         size={35}
@@ -95,8 +91,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                 </div>
                                                 <div
                                                     className={`${info.icon == '3p' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}
-                                                    onClick={() => handleEditTaskIcon(info.id, info.icon = '3p')}
-                                                >
+                                                    onClick={() => handleEditTask(info.id, info.value, info.icon = '3p')}>
                                                     <CgMoreO
                                                         size={35}
                                                         className="text-[#E9A23B]"
@@ -104,7 +99,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                 </div>
                                                 <div
                                                     className={`${info.icon == 'Book' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}
-                                                    onClick={() => handleEditTaskIcon(info.id, info.icon = 'Book')}
+                                                    onClick={() => handleEditTask(info.id, info.value, info.icon = 'Book')}
                                                 >
                                                     <GiBlackBook
                                                         size={35}
@@ -118,8 +113,8 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                             <h1 className='p-1' >Status</h1>
                                             <div className='flex items-center flex-wrap gap-3' >
                                                 <div
-                                                    className={`${info.value == 'Completed' ? 'border-2 border-[#3662E3]' : 'border-2'} cursor-pointer flex items-center gap-3 bg-[#A0ECB1] p-2 rounded-xl w-[49%]`}
-                                                    onClick={() => handleEditTask(info.id, info.value = 'Completed')}>
+                                                    className={`${info.value == 'Completed' ? 'border-2 border-[#3662E3]' : 'border-2'} cursor-pointer flex items-center gap-3 bg-[#A0ECB1] p-2 rounded-xl w-[45%]`}
+                                                    onClick={() => handleEditTask(info.id, info.value = 'Completed', info.icon)}>
 
                                                     <div className="bg-[#32D657] p-1 rounded-xl">
                                                         <FaCheck
@@ -133,8 +128,8 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                 </div>
 
                                                 <div
-                                                    className={`${info.value == 'Progress' ? 'border-2 border-[#3662E3]' : 'border-2'}  cursor-pointer flex items-center gap-3 bg-[#F5D565] p-2 rounded-xl w-[49%]`}
-                                                    onClick={() => handleEditTask(info.id, info.value = 'Progress')}>
+                                                    className={`${info.value == 'Progress' ? 'border-2 border-[#3662E3]' : 'border-2'}  cursor-pointer flex items-center gap-3 bg-[#F5D565] p-2 rounded-xl w-[45%]`}
+                                                    onClick={() => handleEditTask(info.id, info.value = 'Progress', info.icon)}>
                                                     <div className={`bg-[#E9A23B] p-1 rounded-xl`}>
                                                         <SiStagetimer
                                                             size={25}
@@ -147,8 +142,8 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                 </div>
 
                                                 <div
-                                                    className={`${info.value == 'To Do' ? 'border-2 border-[#3662E3]' : 'border-2'} cursor-pointer flex items-center gap-3 bg-[#F7D4D3] p-2 rounded-xl w-[49%]`}
-                                                    onClick={() => handleEditTask(info.id, info.value = 'To Do')}>
+                                                    className={`${info.value == 'To Do' ? 'border-2 border-[#3662E3]' : 'border-2'} cursor-pointer flex items-center gap-3 bg-[#F7D4D3] p-2 rounded-xl w-[45%]`}
+                                                    onClick={() => handleEditTask(info.id, info.value = 'To Do', info.icon)}>
                                                     <div className="bg-[#DD524C] p-1 rounded-xl">
                                                         <IoMdClose
                                                             size={25}
