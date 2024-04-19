@@ -83,7 +83,7 @@ const Home = () => {
     };
 
     useEffect(() => {
-        if (isInfo, isDelete) {
+        if (isInfo || isDelete) {
             setTimeout(() => {
                 setIsInfo(false);
                 setIsDelete(false);
