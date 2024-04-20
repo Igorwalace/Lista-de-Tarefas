@@ -79,7 +79,7 @@ const Home = () => {
                 setIsDelete(false);
             }, 2000);
         }
-    }, [isUptade, isInfo, isDelete]);
+    }, [isUptade, isInfo, isDelete, isAdd]);
 
     return (
         <>
