@@ -4,6 +4,7 @@ import DivTitle from './componentes/divTitle';
 import ListaDasTarefas from './componentes/listaDasTarefas';
 import { useEffect, useState } from 'react';
 import ModalNewTask from './componentes/ModalNewTask';
+import Link from 'next/link'
 
 const Home = () => {
     const [modalNewTask, setModalNewTask] = useState(false);
@@ -79,7 +80,7 @@ const Home = () => {
     return (
         <>
             <main
-                className="w-full flex justify-center"
+                className="w-full flex justify-center mb-[36px]"
                 onClick={() => {
                     setIsInfo(false);
                 }}
@@ -99,7 +100,7 @@ const Home = () => {
                         isUptade={isUptade}
                     />
                     <div
-                        className="bg-[#6d8ae3] w-full rounded-xl p-2 cursor-pointer mt-2"
+                        className="bg-[#6d8ae3] w-full rounded-xl p-2 cursor-pointer mt-2 hover:scale-105 duration-200"
                         onClick={handleModalNewtask}
                     >
                         <div className="flex gap-3 items-center ">
@@ -137,6 +138,9 @@ const Home = () => {
                         <h1>Tarefa removida.</h1>
                     </div>
                 )}
+            <footer className='fixed bottom-0 left-0 right-0 text-center p-1 text-lg bg-white rounded-xl hover:scale-105 duration-200' >
+                <h1>Desenvolvido por <Link href='https://my-website-igor-eight.vercel.app/' className='text-[#0288d1] underline' target='_blank'>Igor Walace</Link></h1>
+            </footer>
             </main>
 
             <ModalNewTask

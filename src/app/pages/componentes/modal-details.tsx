@@ -31,13 +31,13 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
     return (
         <>
             {modalDetails &&
-                <div className="fixed top-0 right-0 bottom-0 left-0 bg-[rgb(0,0,0,0.5)]">
+                <div className="fixed top-0 right-0 bottom-0 left-0 bg-[rgb(0,0,0,0.5)] z-10">
                     <main className='h-full pb-4 flex justify-end'>
                         <div className="relative bg-white md:w-3/6 w-full h-full rounded-xl p-4 m-2" id='container-modal-new-task'>
                             <div className="flex justify-between items-center">
                                 <h1 className="text-xl">Detalhes da Tarefa</h1>
                                 <div
-                                    className="bg-[#DD524C] cursor-pointer rounded-md"
+                                    className="bg-[#DD524C] cursor-pointer rounded-md hover:scale-105 duration-200"
                                     onClick={() => setModalDetails(false)}
                                 >
                                     <IoMdClose
@@ -51,14 +51,14 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                     <div>
                                         <div className='my-3' >
                                             <h1 className='p-1 my-1' >Nome da Tarefa</h1>
-                                            <div className='w-full border-2 border-[#3662E3] rounded-xl p-2 capitalize' >
+                                            <div className='w-full border-2 border-[#3662E3] rounded-xl p-2 capitalize hover:scale-[1.01] duration-200' >
                                                 <h1>{info.title}</h1>
                                             </div>
                                         </div>
 
                                         <div>
                                             <h1 className='p-1' >Descrição</h1>
-                                            <div className='w-full border-2 border-[#3662E3] rounded-xl p-2 capitalize' >
+                                            <div className='w-full border-2 border-[#3662E3] rounded-xl p-2 capitalize hover:scale-[1.01] duration-200' >
                                                 {info.description ?
                                                     <h1>{info.description}</h1>
                                                     :
@@ -71,7 +71,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                             <h1 className='p-1' >Icon</h1>
                                             <div className="flex items-center gap-3">
                                                 <div
-                                                    className={`${info.icon == 'Timer' && 'border-[#3662E3]'} border-2  bg-[#00000033] p-1 rounded-md cursor-pointer`}
+                                                    className={`${info.icon == 'Timer' && 'border-[#3662E3]'} border-2  bg-[#00000033] p-1 rounded-xl cursor-pointer hover:scale-105 duration-200`}
                                                     onClick={() => handleEditTask(info.id, info.value, info.icon = 'Timer')}>
                                                     <RiTimer2Line
                                                         size={35}
@@ -80,7 +80,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                 </div>
 
                                                 <div
-                                                    className={`${info.icon == 'Pensando' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}
+                                                    className={`${info.icon == 'Pensando' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-xl cursor-pointer hover:scale-105 duration-200`}
                                                     onClick={() => handleEditTask(info.id, info.value, info.icon = 'Pensando')}
                                                 >
                                                     <FaHeart 
@@ -89,7 +89,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                     />
                                                 </div>
                                                 <div
-                                                    className={`${info.icon == '3p' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}
+                                                    className={`${info.icon == '3p' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-xl cursor-pointer hover:scale-105 duration-200`}
                                                     onClick={() => handleEditTask(info.id, info.value, info.icon = '3p')}>
                                                     <AiFillBell 
                                                         size={35}
@@ -97,7 +97,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                     />
                                                 </div>
                                                 <div
-                                                    className={`${info.icon == 'Book' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-md cursor-pointer`}
+                                                    className={`${info.icon == 'Book' && 'border-[#3662E3]'} border-2 bg-[#00000033] p-1 rounded-xl cursor-pointer hover:scale-105 duration-200`}
                                                     onClick={() => handleEditTask(info.id, info.value, info.icon = 'Book')}
                                                 >
                                                     <GiBlackBook
@@ -112,7 +112,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                             <h1 className='p-1' >Status</h1>
                                             <div className='flex items-center flex-wrap gap-3' >
                                                 <div
-                                                    className={`${info.value == 'Completed' ? 'border-2 border-[#3662E3]' : 'border-2'} cursor-pointer flex items-center gap-3 bg-[#A0ECB1] p-2 rounded-xl w-[45%]`}
+                                                    className={`${info.value == 'Completed' ? 'border-2 border-[#3662E3]' : 'border-2'} cursor-pointer flex items-center gap-3 bg-[#A0ECB1] p-2 rounded-xl w-[45%] hover:scale-[1.03] duration-200`}
                                                     onClick={() => handleEditTask(info.id, info.value = 'Completed', info.icon)}>
 
                                                     <div className="bg-[#32D657] p-1 rounded-xl">
@@ -127,7 +127,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                 </div>
 
                                                 <div
-                                                    className={`${info.value == 'Progress' ? 'border-2 border-[#3662E3]' : 'border-2'}  cursor-pointer flex items-center gap-3 bg-[#F5D565] p-2 rounded-xl w-[45%]`}
+                                                    className={`${info.value == 'Progress' ? 'border-2 border-[#3662E3]' : 'border-2'}  cursor-pointer flex items-center gap-3 bg-[#F5D565] p-2 rounded-xl w-[45%] hover:scale-[1.03] duration-200`}
                                                     onClick={() => handleEditTask(info.id, info.value = 'Progress', info.icon)}>
                                                     <div className={`bg-[#E9A23B] p-1 rounded-xl`}>
                                                         <SiStagetimer
@@ -141,7 +141,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                 </div>
 
                                                 <div
-                                                    className={`${info.value == 'To Do' ? 'border-2 border-[#3662E3]' : 'border-2'} cursor-pointer flex items-center gap-3 bg-[#F7D4D3] p-2 rounded-xl w-[45%]`}
+                                                    className={`${info.value == 'To Do' ? 'border-2 border-[#3662E3]' : 'border-2'} cursor-pointer flex items-center gap-3 bg-[#F7D4D3] p-2 rounded-xl w-[45%] hover:scale-[1.03] duration-200`}
                                                     onClick={() => handleEditTask(info.id, info.value = 'To Do', info.icon)}>
                                                     <div className="bg-[#DD524C] p-1 rounded-xl">
                                                         <IoMdClose
@@ -159,13 +159,13 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
 
                                         <div className='absolute bottom-0 right-0 p-4 flex gap-3' id='isInfo'>
                                             <button
-                                                className='bg-[#97A3B6] p-2 px-3 rounded-xl text-[#E3E8EF] flex items-center gap-3'
+                                                className='bg-[#97A3B6] p-2 px-3 rounded-xl text-[#E3E8EF] flex items-center gap-3 hover:scale-105 duration-200'
                                                 onClick={() => handleDeleteTask(info.id)}
                                             >
                                                 Delete
                                                 <AiOutlineDelete size={15} />
                                             </button>
-                                            <button className="bg-[#3662E3] p-1 px-3 rounded-md text-white flex items-center gap-3" onClick={handleUptade}>
+                                            <button className="bg-[#3662E3] p-1 px-3 rounded-xl text-white flex items-center gap-3 hover:scale-105 duration-200" onClick={handleUptade}>
                                                 Salvar <FaCheck size={15} />{' '}
                                             </button>
                                         </div>

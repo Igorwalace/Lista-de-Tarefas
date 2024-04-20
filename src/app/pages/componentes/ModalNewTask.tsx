@@ -12,13 +12,13 @@ const ModalNewTask = ({ modalNewTask, setModalNewTask, setDescription, descripti
     return (
         <>
             {modalNewTask && (
-                <div className="fixed top-0 right-0 bottom-0 left-0 bg-[rgb(0,0,0,0.5)]">
+                <div className="fixed top-0 right-0 bottom-0 left-0 bg-[rgb(0,0,0,0.5)] z-10">
                     <main className='h-full pb-4 flex justify-end'>
                         <div className="relative bg-white md:w-3/6 w-full h-full rounded-xl p-4 m-2" id='container-modal-new-task'>
                             <div className="flex justify-between items-center">
                                 <h1 className="text-xl">Task details</h1>
                                 <div
-                                    className="bg-[#DD524C] cursor-pointer rounded-md"
+                                    className="bg-[#DD524C] cursor-pointer rounded-md hover:scale-105 duration-200"
                                     onClick={() => {
                                         setModalNewTask(false)
                                     }}
@@ -34,7 +34,7 @@ const ModalNewTask = ({ modalNewTask, setModalNewTask, setDescription, descripti
                                     <h1 className="p-1">Task name</h1>
                                     <input
                                         type="text"
-                                        className="w-full rounded-xl outline-[#3662E3] border-2 border-[#00000033] p-2 placeholder:text-[#0000033]"
+                                        className="w-full rounded-xl outline-[#3662E3] border-2 border-[#00000033] p-2 placeholder:text-[#0000033] hover:scale-[1.01] duration-200"
                                         placeholder="Title"
                                         value={title}
                                         onChange={(e) => setTitle(e.target.value)}
@@ -43,7 +43,7 @@ const ModalNewTask = ({ modalNewTask, setModalNewTask, setDescription, descripti
                                 <div className="w-full">
                                     <h1 className="p-1">Description</h1>
                                     <textarea
-                                        className="rounded-xl border-2 border-[#00000033] w-full min-h-[200px] resize-none outline-[#3662E3] p-2 placeholder:text-[#0000033]"
+                                        className="rounded-xl border-2 border-[#00000033] w-full min-h-[200px] resize-none outline-[#3662E3] p-2 placeholder:text-[#0000033] hover:scale-[1.01] duration-200"
                                         placeholder="Description (opcional)"
                                         value={description}
                                         onChange={(e) => setDescription(e.target.value)}
@@ -54,25 +54,25 @@ const ModalNewTask = ({ modalNewTask, setModalNewTask, setDescription, descripti
                             <div className="text-[#97A3B6]">
                                 <h1 className="p-1">Icon</h1>
                                 <div className="flex items-center gap-3">
-                                    <div className={`${icon == 'Timer' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={() => handleIconChange('Timer')}>
+                                    <div className={`${icon == 'Timer' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-xl cursor-pointer border-2 hover:scale-105 duration-200`} onClick={() => handleIconChange('Timer')}>
                                         <RiTimer2Line
                                             size={35}
                                             className="text-[#E9A23B]"
                                         />
                                     </div>
-                                    <div className={`${icon == 'Pensando' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={() => handleIconChange('Pensando')}>
+                                    <div className={`${icon == 'Pensando' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-xl cursor-pointer border-2 hover:scale-105 duration-200`} onClick={() => handleIconChange('Pensando')}>
                                         <FaHeart
                                             size={35}
                                             className="text-[#DD524C]"
                                         />
                                     </div>
-                                    <div className={`${icon == '3p' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={() => handleIconChange('3p')}>
+                                    <div className={`${icon == '3p' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-xl cursor-pointer border-2 hover:scale-105 duration-200`} onClick={() => handleIconChange('3p')}>
                                         <AiFillBell
                                             size={35}
                                             className="text-[#626242]"
                                         />
                                     </div>
-                                    <div className={`${icon == 'Book' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-md cursor-pointer border-2`} onClick={() => handleIconChange('Book')}>
+                                    <div className={`${icon == 'Book' && 'border-[#3662E3]'} bg-[#00000033] p-1 rounded-xl cursor-pointer border-2 hover:scale-105 duration-200`} onClick={() => handleIconChange('Book')}>
                                         <GiBlackBook
                                             size={35}
                                             className="text-[#3662E3]"
@@ -80,7 +80,7 @@ const ModalNewTask = ({ modalNewTask, setModalNewTask, setDescription, descripti
                                     </div>
                                 </div>
                                 <div className="absolute bottom-0 right-0 p-4" id='isInfo'>
-                                    <button className="bg-[#3662E3] p-1 px-3 rounded-md text-white flex items-center gap-3" onClick={handleSendTask}>
+                                    <button className="bg-[#3662E3] p-1 px-3 rounded-md text-white flex items-center gap-3 hover:scale-105 duration-200" onClick={handleSendTask}>
                                         Salvar <FaCheck size={15} />{' '}
                                     </button>
                                 </div>

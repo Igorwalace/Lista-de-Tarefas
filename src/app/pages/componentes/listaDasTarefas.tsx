@@ -48,10 +48,10 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                             : info.value == 'Progress'
                                 ? 'bg-[#F5D565]'
                                 : 'bg-[#F7D4D3]'
-                            } p-2 rounded-lg w-full`}
+                            } p-2 rounded-lg w-full hover:scale-105 duration-200`}
                     >
                         <div className="flex justify-between items-center gap-3">
-                            <div className="flex items-center gap-3 cursor-pointer w-full h-full"
+                            <div className="flex items-center gap-3 cursor-pointer w-full h-full "
                                 onClick={() => handleDetails(info.id, info.title, info.description, info.value, info.icon)}
                             >
                                 <div className="bg-[#E3E8EF] rounded-lg p-1 text-[#A0ECB1]">
@@ -80,12 +80,12 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                                     }
                                 </div>
                                 <div className='w-full  h-full' >
-                                    <h1 className="capitalize w-full cursor-pointer">{info.title}</h1>
+                                    <h1 className="capitalize w-full cursor-pointer ">{info.title}</h1>
                                 </div>
                             </div>
 
                             {info.value == 'Completed' ? (
-                                <div className="bg-[#32D657] p-1 rounded-xl cursor-pointer z-100"
+                                <div className="bg-[#32D657] p-1 rounded-xl cursor-pointer z-100 hover:scale-110 duration-200"
                                     onClick={() => handleTaskChange(info.id, 'Progress')}>
                                     <FaCheck
                                         size={25}
@@ -93,7 +93,7 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                                     />
                                 </div>
                             ) : info.value == 'Progress' ? (
-                                <div className="bg-[#E9A23B] p-1 rounded-xl cursor-pointer"
+                                <div className="bg-[#E9A23B] p-1 rounded-xl cursor-pointer hover:scale-110 duration-200"
                                     onClick={() => handleTaskChange(info.id, 'To Do')}>
                                     <SiStagetimer
                                         size={25}
@@ -101,7 +101,7 @@ const listaDasTarefas = ({ arrayTarefas, setArrayTarefas, setModalDetails, modal
                                     />
                                 </div>
                             ) : (
-                                <div className="bg-[#DD524C] p-1 rounded-xl cursor-pointer"
+                                <div className="bg-[#DD524C] p-1 rounded-xl cursor-pointer hover:scale-110 duration-200"
                                     onClick={() => handleTaskChange(info.id, 'Completed')}>
                                     <IoMdClose
                                         size={25}
