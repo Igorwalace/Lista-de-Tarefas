@@ -5,11 +5,13 @@ import ListaDasTarefas from './componentes/listaDasTarefas';
 import { useEffect, useState } from 'react';
 import ModalNewTask from './componentes/ModalNewTask';
 import Link from 'next/link'
+import { FaCheck } from 'react-icons/fa';
 
 const Home = () => {
     const [modalNewTask, setModalNewTask] = useState(false);
     const [isUptade, setIsUptade] = useState(false)
     const [isInfo, setIsInfo] = useState(false);
+    const [isAdd, setIsAdd] = useState(false)
     const [isDelete, setIsDelete] = useState(false);
     const [modalDetails, setModalDetails] = useState(false);
     const [taskDetails, setTaskDetails] = useState([]);
@@ -64,13 +66,15 @@ const Home = () => {
         setArrayTarefas(newTask);
         setTitle('');
         setDescription('');
+        setIsAdd(true)
         setModalNewTask(false);
     };
 
     useEffect(() => {
-        if (isInfo || isDelete || isUptade) {
+        if (isInfo || isDelete || isUptade || isAdd) {
             setTimeout(() => {
                 setIsInfo(false);
+                setIsAdd(false)
                 setIsUptade(false)
                 setIsDelete(false);
             }, 2000);
@@ -127,6 +131,15 @@ const Home = () => {
                     >
                         <IoMdInformationCircleOutline size={20} />
                         <h1>Tarefa atualizada.</h1>
+                    </div>
+                )}
+                {isAdd && (
+                    <div
+                        className="fixed bottom-4 bg-[#32D657] rounded-xl md:min-w-[30%] p-2 flex justify-center gap-2 items-center z-[100] text-[#01293f]"
+                        id="isInfo"
+                    >
+                        <FaCheck size={20} />
+                        <h1>Tarefa adicionada.</h1>
                     </div>
                 )}
                 {isDelete && (
