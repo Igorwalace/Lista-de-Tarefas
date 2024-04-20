@@ -136,7 +136,7 @@ const ModalDetailsPage = ({ modalDetails, setModalDetails, taskDetails, handleDe
                                                         />
                                                     </div>
                                                     <div>
-                                                        <h1>Em Progresso</h1>
+                                                        <h1>Pendente</h1>
                                                     </div>
                                                 </div>
 
