@@ -152,7 +152,7 @@ const Home = () => {
                     </div>
                 )}
             <footer className='fixed bottom-0 left-0 right-0 text-center p-1 text-lg bg-white rounded-xl hover:scale-105 duration-200' >
-                <h1>Desenvolvido por <Link href='https://my-website-igor-eight.vercel.app/' className='text-[#0288d1] underline' target='_blank'>Igor Walace</Link></h1>
+                <h1>Desenvolvido por <Link href='https://meu-website-igor.vercel.app/' className='text-[#0288d1] underline' target='_blank'>Igor Walace</Link></h1>
             </footer>
             </main>
 
